@@ -8,7 +8,7 @@ spec:
       containers:
         - name: django
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          command: ['python', 'manage.py', 'migrate']
+          command: ['python', 'manage.py', 'makemigrations','stickynotes']
           # command: ['python', 'manage.py', 'makemigrations, stickynotes']
           # args:
             # - rm -rf /migrations/;
@@ -25,7 +25,7 @@ spec:
               value: stickynotesDB
 
             - name: POSTGRES_HOST
-              value: 10.72.0.14
+              value: 10.244.1.136
       restartPolicy: Never
   backoffLimit: 2
 

@@ -32,7 +32,7 @@ spec:
               value: stickynotesDB
 
             - name: POSTGRES_HOST
-              value: 10.244.0.28
+              value: 10.244.0.38
       restartPolicy: Never
   backoffLimit: 2
 

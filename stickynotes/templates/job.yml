@@ -8,13 +8,20 @@ spec:
       containers:
         - name: django
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          command: ['python', 'manage.py', 'makemigrations','stickynotes']
+          # command: ['python', 'manage.py', 'migrate']
           # command: ['python', 'manage.py', 'makemigrations, stickynotes']
           # args:
             # - rm -rf /migrations/;
             #   python manage.py migrate --fake;
             #   python manage.py makemigrations stickynotes;
             #   python manage.py migrate --fake-initial;
+  
+
+          command: ["/bin/sh","-c"]
+          args: ["manage.py migrate --fake stickynotes zero; 
+                  rm -rf migrations;
+                  manage.py makemigrations stickynotes
+                  && manage.py migrate --fake <appname> "]
 
           env:
             - name: POSTGRES_USER

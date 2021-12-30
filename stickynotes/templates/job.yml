@@ -18,7 +18,7 @@ spec:
   
 
           command: ["/bin/sh","-c"]
-          args: ["python manage.py migrate --fake stickynotes zero;
+          args: ["python manage.py migrate;
                   rm -rf migrations;
                   mkdir migrations;
                   python manage.py makemigrations stickynotes

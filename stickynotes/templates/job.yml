@@ -21,7 +21,7 @@ spec:
           args: ["manage.py migrate --fake stickynotes zero; 
                   rm -rf migrations;
                   manage.py makemigrations stickynotes
-                  && manage.py migrate --fake <appname> "]
+                  && manage.py migrate --fake stickynotes"]
 
           env:
             - name: POSTGRES_USER

@@ -6,4 +6,4 @@ spec:
   type: image
   params:
     - name: url
-              value: 1joe/stickynotes:v1.0.4
+      value: 1joe/stickynotes:v1.0.4

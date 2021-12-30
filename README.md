@@ -1,2 +1,2 @@
-# stickynotes-digitalOcean
+# stickynotes-DigitalOcean-KubernetesChallenge
 DigitalOcean Kubernetes Challenge 

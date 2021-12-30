@@ -1,0 +1,8 @@
+namespace:
+  name: sandbox
+ 
+image:
+  repository: 1joe/stickynotes
+  tag: v1.0.3
+
+replicaCount: 3

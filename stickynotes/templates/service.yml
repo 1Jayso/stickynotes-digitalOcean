@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stickynotes-service
+  namespace: {{ .Values.namespace.name }} 
+spec:
+  selector:
+    app: stickynotes-container
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: LoadBalancer
+
+

@@ -1,0 +1,9 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: stickynotes
+spec:
+  type: image
+  params:
+    - name: url
+              value: 1joe/stickynotes:v1.0.4

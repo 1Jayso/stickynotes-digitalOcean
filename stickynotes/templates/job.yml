@@ -2,6 +2,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: django-migrations
+  labels:
+    app: django-migrations
+  namespace: {{ .Values.namespace.name }}
 spec:
   template:
     spec:

@@ -79,7 +79,7 @@ kubectl describe  svc -n test postgres-service
 ```
 kubectl apply -f stickynotes-argocd.yaml
 ```
-![Deployment - ArgoCD](images/argocd1.png) http://143.244.209.141:8000/
+![Deployment - ArgoCD](images/argocd1.png)
 
 
 - Last but not the least, go to your terminal and run the command below:
@@ -88,10 +88,9 @@ kubectl get svc -n sandbox
 ```
 - Copy and paste the loadbalancer IP (external IP) and port number of the application in the browser as shown below:
 
-  Application URL: [http://143.244.209.141:8000/](hhttp://143.244.209.141:8000/)
+  Application URL: [http://143.244.209.141:8000/](http://143.244.209.141:8000/)
 
 - click on this link to view the deployed application in your browser.
+   http://143.244.209.141:8000/
 
 - Done!
-
-

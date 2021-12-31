@@ -1,5 +1,5 @@
 # GitOps CI/CD KubernetesChallenge
-DigitalOcean Kubernetes Challenge 
+# DigitalOcean Kubernetes Challenge 
 
 # Deploy a GitOps CI/CD implementation
 

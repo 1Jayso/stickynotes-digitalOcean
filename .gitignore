@@ -11,7 +11,7 @@ workspace.xml
 # stickynotes/migrations/
 # db.sqlite3
 
-Stickynotes-App/.vscode
+# Stickynotes-App/.vscode
 # Created by https://www.toptal.com/developers/gitignore/api/venv,django,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=venv,django,react
 

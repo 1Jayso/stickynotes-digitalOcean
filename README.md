@@ -90,7 +90,7 @@ kubectl get svc -n sandbox
 
   Application URL: [http://143.244.209.141:8000/](http://143.244.209.141:8000/)
 
-- click on this link to view the deployed application in your browser.
+- click on this link to view the deployed application in your browser 
    http://143.244.209.141:8000/
 
 - Done!

@@ -63,91 +63,35 @@ tkn taskrun describe build-docker-image-from-git-source-task-run
 ```
 ![Tekton - Status](images/tekton1.png)
 
-
-
-```
-md -Force "$Env:APPDATA\vcluster"; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls,Tls11,Tls12';
-Invoke-WebRequest -UseBasicParsing ((Invoke-WebRequest -URI "https://github.com/loft-sh/vcluster/releases/latest" -UseBasicParsing).Content -replace "(?ms).*`"([^`"]*vcluster-windows-amd64.exe)`".*","https://github.com/`$1") -o $Env:APPDATA\vcluster\vcluster.exe;
-$env:Path += ";" + $Env:APPDATA + "\vcluster";
-[Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::User);
-```
-
-- To confirm that vcluster CLI is successfully installed, test via:
+- Deploy the postgres argocd applications to the kubernetes cluster by running the commands below:
 
 ```
-vcluster --version
+kubectl apply -f postgres-argocd.yaml
 ```
-
-![Image1](Images/Screenshot_1.png)
-
-- Authentication in DigitalOcean
+- When postgres is succesfully deployed, run the command below and copy one of the endpoint IPs and paste in the deployment file of the stickynotes app. Paste that as the value of POSTGRES_HOST:
 
 ```
-doctl auth init
+kubectl describe  svc -n test postgres-service
 ```
 
-![Image2](Images/Screenshot_2.png)
-
-- Provisioning kubernetes cluster in DigitalOcean
+- Now run the command below to deploy the sticknotes app to the cluster
 
 ```
-doctl kubernetes cluster create do-kuberneteschallenge-2021 --region nyc1
+kubectl apply -f stickynotes-argocd.yaml
 ```
+![Deployment - ArgoCD](images/argocd1.png) http://143.244.209.141:8000/
 
-![Image3](Images/Screenshot_3.png)
 
-- Verify active nodes
-
+- Last but not the least, go to your terminal and run the command below:
 ```
-kubectl get nodes
+kubectl get svc -n sandbox
 ```
+- Copy and paste the loadbalancer IP (external IP) and port number of the application in the browser as shown below:
 
-![Image4](Images/Screenshot_4.png)
+  Application URL: [http://143.244.209.141:8000/](hhttp://143.244.209.141:8000/)
 
-- Deploy vcluster
+- click on this link to view the deployed application in your browser.
 
-```
-vcluster create vcluster-1 -n host-namespace-1
-```
+- Done!
 
-![Image6](Images/Screenshot_6.png)
-
-- Running vcluster
-
-```
-vcluster connect vcluster-1 --namespace host-namespace-1
-```
-![Image5](Images/Screenshot_5.png)
-
-
-- Connect to vcluster (in another terminal)
-
-```
-export KUBECONFIG=$PWD/kubeconfig.yaml
-kubectl get nodes
-```
-
-![Image7](Images/Screenshot_7.png)
-
-- Test the nginx application in this new vcluster
-
-```
-kubectl run nginx --image=nginx
-kubectl expose pod nginx --port=80
-#verify the pod and service
-kubectl get pods
-kubectl get svc
-#Use port forwarding to access nginx application
-kubectl port-forward nginx 9080:80
-```
-
-![Image8](Images/Screenshot_8.png)
-
-![Image9](Images/Screenshot_9.png)
-
-![Image10](Images/Screenshot_10.png)
-
-
-
-- done!
 

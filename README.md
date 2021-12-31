@@ -61,7 +61,7 @@ doctl auth init [ enter digitalocean token when prompted]
 ```
 tkn taskrun describe build-docker-image-from-git-source-task-run
 ```
-![Tekton - Status](images/tekton.png)
+![Tekton - Status](images/tekton1.png)
 
 
 

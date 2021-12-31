@@ -9,7 +9,7 @@ DigitalOcean Kubernetes Challenge
 >In this tutorial we will use Tekton and Kaniko as our CI tooling to build the stickynotes application and push to dockerhub.
 >ArgoCD will be our Continuous Deployment and Delievery tooling to deploy the application to the 3 node kubernetes cluster on digitalocean
 
-![ArgoCD - Architecture](images\argocd_architecture.png)
+![ArgoCD - Architecture](images/argocd_architecture.png)
 
 ## Requirements
 

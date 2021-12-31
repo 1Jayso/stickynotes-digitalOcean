@@ -31,15 +31,16 @@ doctl auth init [ enter digitalocean token when prompted]
 ```
 
 - Follow the reference guide below to create a cluster on digitalocean:
-  reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
+
+   reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
 
 - Follow the reference guide below to connect to a cluster on digitalocean:
 
-  reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)
+   reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)
 
 - Follow the reference guide below to install and setup argocd on the cluster:
 
-  reference: [cluster creation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+   reference: [cluster creation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 
 - Argocd 
 

@@ -9,6 +9,7 @@ DigitalOcean Kubernetes Challenge
 >In this tutorial we will use Tekton and Kaniko as our CI tooling to build the stickynotes application and push to dockerhub.
 >ArgoCD will be our Continuous Deployment and Delievery tooling to deploy the application to the 3 node kubernetes cluster on digitalocean
 
+
 ![ArgoCD - Architecture](images/argocd_architecture.png)
 
 ## Requirements
@@ -20,13 +21,49 @@ DigitalOcean Kubernetes Challenge
 
 ## Steps
 
-- To begin with you would have to install all the above tools in your windows linux or Mac machine.
+- To begin with you would have to install all the above tools on your windows, linux or Mac machine.
 
 
-  reference: [vcluster guide](https://www.vcluster.com/docs/getting-started/setup)
-  reference: [vcluster guide](https://www.vcluster.com/docs/getting-started/setup)
-  reference: [vcluster guide](https://www.vcluster.com/docs/getting-started/setup)
-  reference: [vcluster guide](https://www.vcluster.com/docs/getting-started/setup)
+- Authentication in DigitalOcean
+
+```
+doctl auth init [ enter digitalocean token when prompted]
+```
+
+- Follow the reference guide below to create a cluster on digitalocean:
+  reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
+
+- Follow the reference guide below to connect to a cluster on digitalocean:
+
+  reference: [cluster creation guide](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)
+
+- Follow the reference guide below to install and setup argocd on the cluster:
+
+  reference: [cluster creation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+
+- Argocd 
+
+![ArgoCD - Architecture](images/argocd_architecture.png)
+
+- Apply the manifest files to build and push the image to docker hub
+
+```
+1. kubectl apply -f secrets.yaml
+2. kubectl apply -f dockerhub-service.yaml
+3. kubectl apply -f stickynotes-code.yaml
+4. kubectl apply -f registry.yaml
+5. kubectl apply -f task.yaml
+6. kubectl apply -f taskRuner.yaml
+```
+
+- After sometime run the command below to verify if the image has succesfully been pushed to been built and pushed
+
+```
+tkn taskrun describe build-docker-image-from-git-source-task-run
+```
+![Tekton - Status](images/tekton.png)
+
+
 
 ```
 md -Force "$Env:APPDATA\vcluster"; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls,Tls11,Tls12';
